@@ -6,7 +6,8 @@ that is to say: DSA primer (Data Structures & Algorithms) in Julia
 
 course materials: https://frontendmasters.com/courses/algorithms/
 
-unit testing: https://github.com/ThePrimeagen/kata-machine/tree/master/src/\_\_tests__
+unit testing: https://github.com/ThePrimeagen/kata-machine/tree/master/src/%5F%5Ftests%5F%5F
+<!-- to properly escape double underscore -->
 
 chapters:
 - [x] chap 00 (no code): intro

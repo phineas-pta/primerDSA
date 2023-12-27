@@ -4,7 +4,7 @@ determine the exact spot in which they will break in the most optimized way
 
 mathematically: given a boolean array [F, …, F, T …, T] find index where flipped
 
-below algorithm has time complexity O(sqrt N) comparing to O(N) in normal search algo
+this algorithm has time complexity O(sqrt N) comparing to O(N) in normal search algo
 """
 function two_crystal_balls(breaks::Vector{Bool})::Integer
 	N = length(breaks)
