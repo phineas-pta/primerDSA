@@ -10,3 +10,5 @@ include("chap03-2-Queue.jl")
 include("chap03-3-Stack.jl")
 
 include("chap05-MazeSolver.jl")
+
+include("chap06-QuickSort.jl")
