@@ -6,6 +6,8 @@ begin export  # workaround to line-break export statement
 	Queue, Stack, peekk, dequeue!, enqueue!, pushh!, popp!
 end
 
+# include("chap01-bigO.jl")  # no unit test so not included
+
 include("chap02-1-LinearSearchList.jl")  # linear_search
 include("chap02-2-BinarySearchList.jl")  # bs_list
 include("chap02-3-TwoCrystalBalls.jl")  # two_crystal_balls

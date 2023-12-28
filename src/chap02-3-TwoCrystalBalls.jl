@@ -14,8 +14,11 @@ function two_crystal_balls(breaks::Vector{Bool})::Integer
 		if breaks[i] break end
 	end
 	tmp -= jmpAmount
-	for j ∈ 1:N, i ∈ tmp:N
+	i, j = tmp, 1
+	while i <= N && j <= tmp  # for loop syntax not suitable
 		if breaks[i] return i end
+		i += 1
+		j += 1
 	end
 	return -1
 end

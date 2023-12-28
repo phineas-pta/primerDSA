@@ -1,19 +1,23 @@
 # primerDSA
 
-Julia implementation of “The Last Algorithms Course You'll Need” by ThePrimeagen
+Julia implementation of “The Last Algorithms Course You’ll Need” by ThePrimeagen
 
-that is to say: DSA primer (Data Structures & Algorithms) in Julia
+that is to say: DSA (Data Structures & Algorithms) primer in Julia
 
 course materials: https://frontendmasters.com/courses/algorithms/
 
 unit testing: https://github.com/ThePrimeagen/kata-machine/tree/master/src/%5F%5Ftests%5F%5F
 <!-- to properly escape double underscore -->
 
+why Julia ? it’s high-level enough to write easily like Python but much faster, without resorting to low-level C++ or worse Java headache
+
+require Julia version ≥ 1.9
+
 chapters:
 - [x] chap 00 (no code): intro
-- [x] chap 01 (no code): big O + array data structure
+- [x] chap 01 (code without unit test): big 𝒪 notation, array data structure
 - [x] chap 02: linear search, binary search, 2 crystal balls
-- [ ] chap 03: bubble sort, linked list, queue, stack
+- [x] chap 03: bubble sort, linked list, queue, stack
 - [ ] chap 04: array list, array buffer
 - [ ] chap 05: recursion, path finding
 - [ ] chap 06: quick sort
