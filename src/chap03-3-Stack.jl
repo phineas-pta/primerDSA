@@ -3,6 +3,8 @@ this code is a simplified implementation of a stack (LIFO = last in 1st out)
 
 for more formal implementation: see
 https://github.com/JuliaCollections/DataStructures.jl/blob/master/src/stack.jl
+
+multiple dispatch functions defined in Base
 """
 
 @kwdef mutable struct Stack{T<:Number}
@@ -13,14 +15,14 @@ end
 """for debugging"""
 Base.show(io::IO, stack::Stack) = print(io,
 	"length=", stack.length,
-	", head=", isnothing(stack.head) ? nothing : stack.head.value
+	", head=", get_node_value(stack.head)
 )
 
-function peekk(stack::Stack{T})::Union{T, Nothing} where T<:Number  # peek already defined in Base
-	return isnothing(stack.head) ? nothing : stack.head.value
+function Base.peek(stack::Stack{T})::Union{T, Nothing} where {T<:Number}
+	return get_node_value(stack.head)
 end
 
-function pushh!(stack::Stack{T}, item::T) where T  # push already defined in Base
+function Base.push!(stack::Stack{T}, item::T) where {T}
 	node = Node(value=item)
 	stack.length += 1
 	if !isnothing(stack.head)
@@ -30,7 +32,7 @@ function pushh!(stack::Stack{T}, item::T) where T  # push already defined in Bas
 	return nothing
 end
 
-function popp!(stack::Stack{T})::Union{T, Nothing} where T<:Number  # popp already defined in Base
+function Base.pop!(stack::Stack{T})::Union{T, Nothing} where {T<:Number}
 	myhead = stack.head
 	if isnothing(myhead) return nothing end
 	stack.length -= 1

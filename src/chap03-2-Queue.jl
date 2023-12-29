@@ -3,6 +3,8 @@ this code is a simplified implementation of a queue (FIFO = 1st in 1st out)
 
 for more formal implementation: see
 https://github.com/JuliaCollections/DataStructures.jl/blob/master/src/queue.jl
+
+multiple dispatch functions defined in Base
 """
 
 @kwdef mutable struct Queue{T<:Number}
@@ -14,15 +16,15 @@ end
 """for debugging"""
 Base.show(io::IO, queue::Queue) = print(io,
 	"length=", queue.length,
-	", head=", isnothing(queue.head) ? nothing : queue.head.value,
-	", tail=", isnothing(queue.tail) ? nothing : queue.tail.value
+	", head=", get_node_value(queue.head),
+	", tail=", get_node_value(queue.tail)
 )
 
-function peekk(queue::Queue{T})::Union{T, Nothing} where T<:Number  # peek already defined in Base
-	return isnothing(queue.head) ? nothing : queue.head.value
+function Base.peek(queue::Queue{T})::Union{T, Nothing} where {T<:Number}
+	return get_node_value(queue.head)
 end
 
-function dequeue!(queue::Queue{T})::Union{T, Nothing} where T<:Number
+function dequeue!(queue::Queue{T})::Union{T, Nothing} where {T<:Number}
 	myhead = queue.head
 	if isnothing(myhead) return nothing end
 	queue.length -= 1
@@ -33,7 +35,7 @@ function dequeue!(queue::Queue{T})::Union{T, Nothing} where T<:Number
 	return myhead.value
 end
 
-function enqueue!(queue::Queue{T}, item::T) where T<:Number
+function enqueue!(queue::Queue{T}, item::T) where {T<:Number}
 	node = Node(value=item)
 	queue.length += 1
 	if isnothing(queue.tail)

@@ -1,4 +1,4 @@
-function linear_search(haystack::Vector{T}, needle::T)::Bool where T<:Number
+function linear_search(haystack::Vector{T}, needle::T)::Bool where {T<:Number}
 	for i ∈ 1:length(haystack)
 		if haystack[i] == needle
 			return true

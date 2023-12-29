@@ -4,11 +4,13 @@ Julia implementation of “The Last Algorithms Course You’ll Need” by ThePri
 
 that is to say: DSA (Data Structures & Algorithms) primer in Julia
 
-course materials: https://frontendmasters.com/courses/algorithms/
+folder `src`:
+- course materials: https://frontendmasters.com/courses/algorithms/
+- answer sheet: https://github.com/rsHalford/the-last-algorithms-course-youll-ever-need
 
-unit testing: https://github.com/ThePrimeagen/kata-machine/tree/master/src/%5F%5Ftests%5F%5F
-<!-- to properly escape double underscore --><br />
-be careful with array index as JavaScript is 0-based meanwhile Julia is 1-based
+folder `test`:
+- unit testing: https://github.com/ThePrimeagen/kata-machine/tree/master/src/%5F%5Ftests%5F%5F<!-- to properly escape double underscore -->
+- be careful with array index as JavaScript is 0-based meanwhile Julia is 1-based
 
 why Julia ? it’s high-level enough to write easily like Python but much faster, without resorting to low-level C++ or worse Java headache
 
@@ -22,7 +24,7 @@ chapters:
 - [x] chap 04 (no code): array list, array buffer
 - [x] chap 05: recursion, path finding
 - [x] chap 06: quick sort
-- [ ] chap 07: doubly linked list
+- [x] chap 07: doubly linked list
 - [ ] chap 08: trees
 - [ ] chap 09: tree search: breadth-1st, binary tree, depth-1st
 - [ ] chap 10: heap, tries

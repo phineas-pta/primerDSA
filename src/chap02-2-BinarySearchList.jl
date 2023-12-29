@@ -1,5 +1,5 @@
 """binary search, array must be sorted"""
-function bs_list(haystack::Vector{T}, needle::T)::Bool where T<:Number
+function bs_list(haystack::Vector{T}, needle::T)::Bool where {T<:Number}
 	lo = 0
 	hi = length(haystack)
 	while lo < hi

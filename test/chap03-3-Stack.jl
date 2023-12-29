@@ -3,21 +3,21 @@
 @testset "chap 03: stack" begin
 	list = Stack{Int}()  # weird error with Integer
 
-	pushh!(list, 5)
-	pushh!(list, 7)
-	pushh!(list, 9)
-	@test popp!(list) == 9
+	push!(list, 5)
+	push!(list, 7)
+	push!(list, 9)
+	@test pop!(list) == 9
 	@test list.length == 2
 
-	pushh!(list, 11)
-	@test popp!(list) == 11
-	@test popp!(list) == 7
-	@test peekk(list) == 5
-	@test popp!(list) == 5
-	@test isnothing(popp!(list))
+	push!(list, 11)
+	@test pop!(list) == 11
+	@test pop!(list) == 7
+	@test peek(list) == 5
+	@test pop!(list) == 5
+	@test isnothing(pop!(list))
 	@test list.length == 0
 
-	pushh!(list, 69)
-	@test peekk(list) == 69
+	push!(list, 69)
+	@test peek(list) == 69
 	@test list.length == 1
 end
