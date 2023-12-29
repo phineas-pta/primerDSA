@@ -5,17 +5,18 @@ for more formal implementation: see
 https://github.com/JuliaCollections/DataStructures.jl/blob/master/src/queue.jl
 """
 
-mutable struct NodeQ{T<:Number}  # avoid name conflict in Stack
-	const value::T
-	next::Union{NodeQ{T}, Nothing}
-end
-
-# @kwdef to define default values in struct
 @kwdef mutable struct Queue{T<:Number}
 	length::Unsigned = 0
-	head::Union{NodeQ{T}, Nothing} = nothing
-	tail::Union{NodeQ{T}, Nothing} = nothing
+	head::Union{Node{T}, Nothing} = nothing
+	tail::Union{Node{T}, Nothing} = nothing
 end
+
+"""for debugging"""
+Base.show(io::IO, queue::Queue) = print(io,
+	"length=", queue.length,
+	", head=", isnothing(queue.head) ? nothing : queue.head.value,
+	", tail=", isnothing(queue.tail) ? nothing : queue.tail.value
+)
 
 function peekk(queue::Queue{T})::Union{T, Nothing} where T<:Number  # peek already defined in Base
 	return isnothing(queue.head) ? nothing : queue.head.value
@@ -33,7 +34,7 @@ function dequeue!(queue::Queue{T})::Union{T, Nothing} where T<:Number
 end
 
 function enqueue!(queue::Queue{T}, item::T) where T<:Number
-	node = NodeQ(item, nothing)
+	node = Node(value=item)
 	queue.length += 1
 	if isnothing(queue.tail)
 		queue.head = queue.tail = node

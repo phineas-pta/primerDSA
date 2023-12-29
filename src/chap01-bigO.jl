@@ -8,23 +8,14 @@ no unit test so not included in main program
 
 """𝒪(n) as number of operations increases linearly with the size of the input"""
 function sum_char_codes_1(str::String)::Integer
-	res = 0
-	for i ∈ str
-		res += Int(i)
-	end
-	return res
+	return sum([Int(i) for i ∈ str])
 end
 
 """still 𝒪(n) as linear increasing"""
 function sum_char_codes_2(str::String)::Integer
-	res = 0
-	for i ∈ str
-		res += Int(i)
-	end
-	for i ∈ str
-		res += Int(i)
-	end
-	return res
+	res1 = sum([Int(i) for i ∈ str])
+	res2 = sum([Int(i) for i ∈ str])
+	return res1 + res2
 end
 
 """still 𝒪(n) as consider the worst case, despite function could end earlier"""
@@ -40,18 +31,10 @@ end
 
 """𝒪(n²) as nested loop"""
 function sum_char_codes_4(str::String)::Integer
-	res = 0
-	for i ∈ str, j ∈ str
-		res += Int(j)
-	end
-	return res
+	return sum([Int(j) for i ∈ str, j ∈ str])
 end
 
 """𝒪(n³)"""
-function sum_char_codes_4(str::String)::Integer
-	res = 0
-	for i ∈ str, j ∈ str, k ∈ str
-		res += Int(k)
-	end
-	return res
+function sum_char_codes_5(str::String)::Integer
+	return sum([Int(k) for i ∈ str, j ∈ str, k ∈ str])
 end

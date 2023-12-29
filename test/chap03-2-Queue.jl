@@ -1,7 +1,7 @@
 # https://github.com/ThePrimeagen/kata-machine/blob/master/src/__tests__/Queue.ts
 
 @testset "chap 03: queue" begin
-	list = Queue{Int}()
+	list = Queue{Int}()  # weird error with Integer
 
 	enqueue!(list, 5)
 	enqueue!(list, 7)

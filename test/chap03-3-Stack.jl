@@ -1,7 +1,7 @@
 # https://github.com/ThePrimeagen/kata-machine/blob/master/src/__tests__/Stack.ts
 
 @testset "chap 03: stack" begin
-	list = Stack{Int}()
+	list = Stack{Int}()  # weird error with Integer
 
 	pushh!(list, 5)
 	pushh!(list, 7)

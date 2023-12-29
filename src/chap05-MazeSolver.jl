@@ -1,6 +1,6 @@
-struct Pointy
-	x::Integer
-	y::Integer
+struct Pointy  # coordinates are array index
+	x::Unsigned
+	y::Unsigned
 end
 
 const dir = [ # direction can go
@@ -19,7 +19,7 @@ function walk!(maze::Vector{String}, wall::Char, curr::Pointy, endd::Pointy, see
 	if maze[curr.y][curr.x] == wall # 1.2. on the wall
 		return false
 	end
-	if curr.x == endd.x && curr.y == endd.y # 1.3. at the end
+	if #= curr.x == endd.x && curr.y == endd.y =# curr === endd # 1.3. at the end
 		push!(path, endd)
 		return true
 	end
