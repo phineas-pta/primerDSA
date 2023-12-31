@@ -15,9 +15,7 @@ end
 
 """for debugging"""
 Base.show(io::IO, queue::Queue) = print(io,
-	"length=", queue.length,
-	", head=", get_node_value(queue.head),
-	", tail=", get_node_value(queue.tail)
+	"length=$(queue.length), head=$(get_node_value(queue.head)), tail=$(get_node_value(queue.tail))",
 )
 
 function Base.peek(queue::Queue{T})::Union{T, Nothing} where {T<:Number}

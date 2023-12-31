@@ -14,8 +14,7 @@ end
 
 """for debugging"""
 Base.show(io::IO, stack::Stack) = print(io,
-	"length=", stack.length,
-	", head=", get_node_value(stack.head)
+	"length=$(stack.length), head=$(get_node_value(stack.head))"
 )
 
 function Base.peek(stack::Stack{T})::Union{T, Nothing} where {T<:Number}

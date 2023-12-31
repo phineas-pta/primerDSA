@@ -8,9 +8,7 @@ end
 
 """for debugging"""
 Base.show(io::IO, arr::DoublyLinkedList) = print(io,
-	"length=", arr.length,
-	", head=", get_node_value(arr.head),
-	", tail=", get_node_value(arr.tail)
+	"length=$(arr.length), head=$(get_node_value(arr.head)), tail=$(get_node_value(arr.tail))"
 )
 
 # originally `getAt`, in Julia `[` auto become Base.getindex

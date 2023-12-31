@@ -8,7 +8,8 @@ begin export  # workaround to line-break export statement
 	#= chap 06 =# quick_sort!,
 	#= chap 07 =# DoublyLinkedList, remove!, removeAt!,
 	#= chap 08 =# NodeBT, traverse_tree,
-	#= chap 09 =# bfs, dfs
+	#= chap 09 =# bfs, dfs,
+	#= chap 10 =# MinHeap
 end
 
 # @kwdef to define default values in struct
@@ -25,6 +26,7 @@ end
 	left::Union{NodeBT{T}, Nothing} = nothing
 end
 
+"""for debugging"""
 function get_node_value(node::Union{NodeLL{T}, NodeBT{T}, Nothing})::Union{T, Nothing} where {T<:Number}
 	return isnothing(node) ? nothing : node.value
 end
@@ -50,5 +52,7 @@ include("chap08-TreeTraversal.jl")
 include("chap09-1-BTBFS.jl")
 include("chap09-2-CompareBinaryTrees.jl")
 include("chap09-3-DFSOnBST.jl")
+
+include("chap10-MinHeap.jl")
 
 end  # module

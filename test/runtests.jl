@@ -36,3 +36,5 @@ include("chap08-TreeTraversal.jl")
 include("chap09-1-BTBFS.jl")
 include("chap09-2-CompareBinaryTrees.jl")
 include("chap09-3-DFSOnBST.jl")
+
+include("chap10-MinHeap.jl")

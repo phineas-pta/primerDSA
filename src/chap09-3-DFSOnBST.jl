@@ -10,6 +10,7 @@ function search(curr::Union{NodeBT{T}, Nothing}, needle::T)::Bool where {T<:Numb
 	end
 end
 
+"""depth-1st search"""
 function dfs(root::NodeBT{T}, needle::T)::Bool where {T<:Number}
 	return search(root, needle)
 end
