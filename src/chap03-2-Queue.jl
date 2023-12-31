@@ -9,8 +9,8 @@ multiple dispatch functions defined in Base
 
 @kwdef mutable struct Queue{T<:Number}
 	length::Unsigned = 0
-	head::Union{Node{T}, Nothing} = nothing
-	tail::Union{Node{T}, Nothing} = nothing
+	head::Union{NodeLL{T}, Nothing} = nothing
+	tail::Union{NodeLL{T}, Nothing} = nothing
 end
 
 """for debugging"""
@@ -36,7 +36,7 @@ function dequeue!(queue::Queue{T})::Union{T, Nothing} where {T<:Number}
 end
 
 function enqueue!(queue::Queue{T}, item::T) where {T<:Number}
-	node = Node(value=item)
+	node = NodeLL(value=item)
 	queue.length += 1
 	if isnothing(queue.tail)
 		queue.head = queue.tail = node

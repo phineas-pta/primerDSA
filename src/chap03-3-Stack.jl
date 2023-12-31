@@ -9,7 +9,7 @@ multiple dispatch functions defined in Base
 
 @kwdef mutable struct Stack{T<:Number}
 	length::Unsigned = 0
-	head::Union{Node{T}, Nothing} = nothing
+	head::Union{NodeLL{T}, Nothing} = nothing
 end
 
 """for debugging"""
@@ -23,7 +23,7 @@ function Base.peek(stack::Stack{T})::Union{T, Nothing} where {T<:Number}
 end
 
 function Base.push!(stack::Stack{T}, item::T) where {T}
-	node = Node(value=item)
+	node = NodeLL(value=item)
 	stack.length += 1
 	if !isnothing(stack.head)
 		node.prev = stack.head

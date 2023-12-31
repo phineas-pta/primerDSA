@@ -2,8 +2,8 @@
 
 @kwdef mutable struct DoublyLinkedList{T<:Number}
 	length::Unsigned = 0
-	head::Union{Node{T}, Nothing} = nothing
-	tail::Union{Node{T}, Nothing} = nothing
+	head::Union{NodeLL{T}, Nothing} = nothing
+	tail::Union{NodeLL{T}, Nothing} = nothing
 end
 
 """for debugging"""
@@ -14,7 +14,7 @@ Base.show(io::IO, arr::DoublyLinkedList) = print(io,
 )
 
 # originally `getAt`, in Julia `[` auto become Base.getindex
-function Base.getindex(arr::DoublyLinkedList{T}, idx::Integer)::Union{Node{T}, Nothing} where {T<:Number}
+function Base.getindex(arr::DoublyLinkedList{T}, idx::Integer)::Union{NodeLL{T}, Nothing} where {T<:Number}
 	if idx > arr.length
 		error("oh no")
 	elseif idx == 1
@@ -34,7 +34,7 @@ function Base.get(arr::DoublyLinkedList{T}, idx::Integer)::Union{T, Nothing} whe
 end
 
 function Base.prepend!(arr::DoublyLinkedList{T}, item::T) where {T<:Number}
-	node = Node(value=item)
+	node = NodeLL(value=item)
 	arr.length += 1
 	if isnothing(arr.head)
 		arr.head = arr.tail = node
@@ -47,7 +47,7 @@ function Base.prepend!(arr::DoublyLinkedList{T}, item::T) where {T<:Number}
 end
 
 function Base.append!(arr::DoublyLinkedList{T}, item::T) where {T<:Number}
-	node = Node(value=item)
+	node = NodeLL(value=item)
 	arr.length += 1
 	if isnothing(arr.tail)
 		arr.head = arr.tail = node
@@ -72,7 +72,7 @@ function Base.insert!(arr::DoublyLinkedList{T}, idx::Integer, item::T) where {T<
 	end
 	arr.length += 1
 	curr = arr[idx]
-	node = Node(value=item, prev=curr.prev, next=curr)
+	node = NodeLL(value=item, prev=curr.prev, next=curr)
 	curr.prev = node
 	if !isnothing(node.prev)
 		curr.prev.next = curr
@@ -80,7 +80,7 @@ function Base.insert!(arr::DoublyLinkedList{T}, idx::Integer, item::T) where {T<
 	return nothing
 end
 
-function removeNode!(arr::DoublyLinkedList{T}, node::Node{T})::Union{T, Nothing} where {T<:Number}
+function removeNode!(arr::DoublyLinkedList{T}, node::NodeLL{T})::Union{T, Nothing} where {T<:Number}
 	arr.length -= 1
 	if arr.length == 0
 		tmp = get_node_value(arr.head)

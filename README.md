@@ -16,7 +16,7 @@ why Julia ? it’s high-level enough to write easily like Python but much faster
 
 require Julia version ≥ 1.9
 
-chapters:
+chapters: (my personal numbering)
 - [x] chap 00 (no code): intro
 - [x] chap 01 (code without unit test): big 𝒪 notation, array data structure
 - [x] chap 02: linear search, binary search, 2 crystal balls
@@ -25,9 +25,42 @@ chapters:
 - [x] chap 05: recursion, path finding
 - [x] chap 06: quick sort
 - [x] chap 07: doubly linked list
-- [ ] chap 08: trees
-- [ ] chap 09: tree search: breadth-1st, binary tree, depth-1st
+- [x] chap 08: binary trees, tree traversal
+- [x] chap 09: compare trees, tree search: breadth-1st, depth-1st
 - [ ] chap 10: heap, tries
 - [ ] chap 11: graphs, adjacency matrix, Dijkstra’s shortest path
 - [ ] chap 12: maps, LRU cache
 - [ ] chap 13 (no code): wrapped up
+
+## basic Julia setup
+
+1st setup
+```
+julia> # press ] (without Enter)
+
+(@v1.9) pkg> generate primerDSA
+
+(primerDSA) pkg> activate ./primerDSA
+
+(primerDSA) pkg> # press Baskspace (without Enter)
+
+julia> cd("primerDSA");
+
+julia> mkpath("test");
+
+julia> write("test/runtests.jl", """println("Testing...")""");
+
+julia> # press ] (without Enter)
+
+(primerDSA) pkg> activate ./test
+
+(test) pkg> add Test
+```
+for each time testing
+```
+julia> # press ] (without Enter)
+
+(@v1.9) pkg> activate ./primerDSA
+
+(primerDSA) pkg> test
+```

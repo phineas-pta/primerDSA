@@ -6,17 +6,26 @@ begin export  # workaround to line-break export statement
 	#= chap 03 =# bubble_sort!, Queue, Stack, dequeue!, enqueue!,
 	#= chap 05 =# Pointy, solve,
 	#= chap 06 =# quick_sort!,
-	#= chap 07 =# DoublyLinkedList, remove!, removeAt!
+	#= chap 07 =# DoublyLinkedList, remove!, removeAt!,
+	#= chap 08 =# NodeBT, traverse_tree,
+	#= chap 09 =# bfs, dfs
 end
 
 # @kwdef to define default values in struct
-@kwdef mutable struct Node{T<:Number}  # used in linked list struct (stack, queue, doubly)
+
+@kwdef mutable struct NodeLL{T<:Number}  # used in linked list struct (stack, queue, doubly)
 	const value::T
-	prev::Union{Node{T}, Nothing} = nothing
-	next::Union{Node{T}, Nothing} = nothing
+	prev::Union{NodeLL{T}, Nothing} = nothing
+	next::Union{NodeLL{T}, Nothing} = nothing
 end
 
-function get_node_value(node::Union{Node{T}, Nothing})::Union{T, Nothing} where {T<:Number}
+@kwdef mutable struct NodeBT{T<:Number}  # binary tree itself
+	const value::T
+	right::Union{NodeBT{T}, Nothing} = nothing
+	left::Union{NodeBT{T}, Nothing} = nothing
+end
+
+function get_node_value(node::Union{NodeLL{T}, NodeBT{T}, Nothing})::Union{T, Nothing} where {T<:Number}
 	return isnothing(node) ? nothing : node.value
 end
 
@@ -35,5 +44,11 @@ include("chap05-MazeSolver.jl")
 include("chap06-QuickSort.jl")
 
 include("chap07-DoublyLinkedList.jl")
+
+include("chap08-TreeTraversal.jl")
+
+include("chap09-1-BTBFS.jl")
+include("chap09-2-CompareBinaryTrees.jl")
+include("chap09-3-DFSOnBST.jl")
 
 end  # module
