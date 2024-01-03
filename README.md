@@ -39,8 +39,12 @@ chapters: (my personal numbering)
 julia> # press ] (without Enter)
 
 (@v1.9) pkg> generate primerDSA
+  Generating  project primerDSA:
+    primerDSA/Project.toml
+    primerDSA/src/primerDSA.jl
 
 (primerDSA) pkg> activate ./primerDSA
+  Activating project at `███/primerDSA`
 
 (primerDSA) pkg> # press Baskspace (without Enter)
 
@@ -53,8 +57,21 @@ julia> write("test/runtests.jl", """println("Testing...")""");
 julia> # press ] (without Enter)
 
 (primerDSA) pkg> activate ./test
+  Activating project at `███/primerDSA/test`
 
 (test) pkg> add Test
+   Resolving package versions...
+    Updating `███/primerDSA/test/Project.toml`
+  [████████] + Test
+    Updating `███/primerDSA/test/Manifest.toml`
+  [████████] + Base64
+  [████████] + InteractiveUtils
+  [████████] + Logging
+  [████████] + Markdown
+  [████████] + Random
+  [████████] + SHA
+  [████████] + Serialization
+  [████████] + Test
 ```
 for each time testing
 ```

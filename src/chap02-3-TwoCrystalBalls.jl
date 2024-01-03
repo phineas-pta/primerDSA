@@ -13,7 +13,7 @@ function two_crystal_balls(breaks::Vector{Bool})::Integer
 	for outer i ∈ jmpAmount:jmpAmount:N
 		if breaks[i] break end
 	end
-	i -= jmpAmount
+	i -= jmpAmount  # go back then walk √N
 	j = 1
 	while i ≤ N && j ≤ jmpAmount  # julia for loop syntax not suitable
 		if breaks[i] return i end

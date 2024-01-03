@@ -3,7 +3,7 @@ using primerDSA
 
 const array_to_search = [1, 3, 4, 69, 71, 81, 90, 99, 420, 1337, 69420]
 const array_to_sort = [9, 3, 7, 4, 69, 420, 42]
-const binary_tree = NodeBT(
+const my_binary_tree = NodeBT(
 	value=20,
 	right=NodeBT(
 		value=50,

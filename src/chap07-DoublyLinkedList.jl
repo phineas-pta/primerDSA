@@ -27,6 +27,9 @@ function Base.getindex(arr::DoublyLinkedList{T}, idx::Integer)::Union{NodeLL{T},
 	return curr
 end
 
+Base.firstindex(arr::DoublyLinkedList) = 0
+Base.lastindex(arr::DoublyLinkedList) = arr.length - 1
+
 function Base.get(arr::DoublyLinkedList{T}, idx::Integer)::Union{T, Nothing} where {T<:Number}
 	return get_node_value(arr[idx])
 end
@@ -78,7 +81,7 @@ function Base.insert!(arr::DoublyLinkedList{T}, idx::Integer, item::T) where {T<
 	return nothing
 end
 
-function removeNode!(arr::DoublyLinkedList{T}, node::NodeLL{T})::Union{T, Nothing} where {T<:Number}
+function _removeNode!(arr::DoublyLinkedList{T}, node::NodeLL{T})::Union{T, Nothing} where {T<:Number}
 	arr.length -= 1
 	if arr.length == 0
 		tmp = get_node_value(arr.head)
@@ -108,12 +111,12 @@ function remove!(arr::DoublyLinkedList{T}, item::T)::Union{T, Nothing} where {T<
 		curr = curr.next
 	end
 	if isnothing(curr) return nothing end
-	return removeNode!(arr, curr)
+	return _removeNode!(arr, curr)
 end
 
 # weird error if multiple-dispatch `Base.popat!`
 function removeAt!(arr::DoublyLinkedList{T}, idx::Integer)::Union{T, Nothing} where {T<:Number}
 	node = arr[idx]
 	if isnothing(node) return nothing end
-	return removeNode!(arr, node)
+	return _removeNode!(arr, node)
 end

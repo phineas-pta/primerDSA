@@ -3,14 +3,14 @@ struct Pointy  # coordinates are array index
 	y::Unsigned
 end
 
-const dir = [ # direction can go
+const _pointy_dir = [ # direction can go
 	(-1, 0),  # left
 	(1, 0),   # right
 	(0, -1),  # down
 	(0, 1),   # up
 ]
 
-function walk!(maze::Vector{String}, wall::Char, curr::Pointy, endd::Pointy, seen::Vector{Vector{Bool}}, path::Vector{Pointy})::Bool
+function _walk!(maze::Vector{String}, wall::Char, curr::Pointy, endd::Pointy, seen::Vector{Vector{Bool}}, path::Vector{Pointy})::Bool
 
 	# 1. base case ==================================================
 	if curr.x < 1 || curr.x > length(maze[1]) || curr.y < 1 || curr.y > length(maze)
@@ -30,9 +30,9 @@ function walk!(maze::Vector{String}, wall::Char, curr::Pointy, endd::Pointy, see
 	# 2. recursive case =============================================
 	seen[curr.y][curr.x] = true
 	push!(path, curr) # 2.1. pre
-	for i ∈ dir # 2.2. recurse
+	for i ∈ _pointy_dir # 2.2. recurse
 		next = Pointy(curr.x + i[1], curr.y + i[2])
-		if walk!(maze, wall, next, endd, seen, path) return true end
+		if _walk!(maze, wall, next, endd, seen, path) return true end
 	end
 	pop!(path) # 2.3. post
 	return false
@@ -40,8 +40,8 @@ function walk!(maze::Vector{String}, wall::Char, curr::Pointy, endd::Pointy, see
 end
 
 function solve(maze::Vector{String}, wall::Char, start::Pointy, endd::Pointy)::Vector{Pointy}
-	path = Vector{Pointy}()
+	path = Pointy[]
 	seen = [fill(false, length(i)) for i in maze]
-	walk!(maze, wall, start, endd, seen, path)
+	_walk!(maze, wall, start, endd, seen, path)
 	return path
 end

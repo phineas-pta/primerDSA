@@ -18,6 +18,6 @@
 			left=NodeBT(value=5, right=NodeBT(value=7))
 		)
 	)
-	@test binary_tree == binary_tree
-	@test binary_tree != tree2
+	@test my_binary_tree == my_binary_tree
+	@test my_binary_tree != tree2
 end
