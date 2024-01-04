@@ -9,27 +9,11 @@ begin export  # workaround to line-break export statement
 	#= chap 07 =# DoublyLinkedList, remove!, removeAt!,
 	#= chap 08 =# NodeBT, traverse_tree,
 	#= chap 09 =# bfs, dfs,
-	#= chap 10 =# MinHeap
+	#= chap 10 =# MinHeap,
+	#= chap 11 =# GraphEdge, #= bfs, dfs, =# dijkstra_list
 end
 
-# @kwdef to define default values in struct
-
-@kwdef mutable struct NodeLL{T<:Number}  # used in linked list struct (stack, queue, doubly)
-	const value::T
-	prev::Union{NodeLL{T}, Nothing} = nothing
-	next::Union{NodeLL{T}, Nothing} = nothing
-end
-
-@kwdef mutable struct NodeBT{T<:Number}  # binary tree itself
-	const value::T
-	right::Union{NodeBT{T}, Nothing} = nothing
-	left::Union{NodeBT{T}, Nothing} = nothing
-end
-
-"""for debugging"""
-function get_node_value(node::Union{NodeLL{T}, NodeBT{T}, Nothing})::Union{T, Nothing} where {T<:Number}
-	return isnothing(node) ? nothing : node.value
-end
+include("global.jl")
 
 # include("chap01-bigO.jl")  # no unit test so not included
 
@@ -54,5 +38,9 @@ include("chap09-2-CompareBinaryTrees.jl")
 include("chap09-3-DFSOnBST.jl")
 
 include("chap10-MinHeap.jl")
+
+include("chap11-1-BFSGraphMatrix.jl")
+include("chap11-2-DFSGraphList.jl")
+include("chap11-3-DijkstraList.jl")
 
 end  # module

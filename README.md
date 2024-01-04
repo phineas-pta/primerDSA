@@ -28,7 +28,7 @@ chapters: (my personal numbering)
 - [x] chap 08: binary trees, tree traversal
 - [x] chap 09: compare trees, tree search: breadth-1st, depth-1st
 - [x] chap 10: heap, tries
-- [ ] chap 11: graphs, adjacency matrix, Dijkstra’s shortest path
+- [x] chap 11: graphs, adjacency matrix, Dijkstra’s shortest path
 - [ ] chap 12: maps, LRU cache
 - [ ] chap 13 (no code): wrapped up
 
