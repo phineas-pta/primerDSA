@@ -14,7 +14,7 @@
 	@test pop!(list) == 7
 	@test peek(list) == 5
 	@test pop!(list) == 5
-	@test isnothing(pop!(list))
+	@test list |> pop! |> isnothing
 	@test list.length == 0
 
 	push!(list, 69)

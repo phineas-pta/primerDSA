@@ -41,7 +41,7 @@ end
 
 function solve(maze::Vector{String}, wall::Char, start::Pointy, endd::Pointy)::Vector{Pointy}
 	path = Pointy[]
-	seen = [fill(false, length(i)) for i in maze]
+	seen = [fill(false, length(i)) for i ∈ maze]
 	_walk!(maze, wall, start, endd, seen, path)
 	return path
 end

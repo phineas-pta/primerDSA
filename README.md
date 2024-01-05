@@ -29,8 +29,8 @@ chapters: (my personal numbering)
 - [x] chap 09: compare trees, tree search: breadth-1st, depth-1st
 - [x] chap 10: heap, tries
 - [x] chap 11: graphs, adjacency matrix, Dijkstra’s shortest path
-- [ ] chap 12: maps, LRU cache
-- [ ] chap 13 (no code): wrapped up
+- [x] chap 12: maps, LRU cache
+- [x] chap 13 (no code): wrapped up
 
 ## basic Julia setup
 
@@ -43,20 +43,13 @@ julia> # press ] (without Enter)
     primerDSA/Project.toml
     primerDSA/src/primerDSA.jl
 
-(primerDSA) pkg> activate ./primerDSA
-  Activating project at `███/primerDSA`
+(@v1.9) pkg> # press Baskspace (without Enter)
 
-(primerDSA) pkg> # press Baskspace (without Enter)
-
-julia> cd("primerDSA");
-
-julia> mkpath("test");
-
-julia> write("test/runtests.jl", """println("Testing...")""");
+julia> cd("primerDSA"); mkpath("test"); write("test/runtests.jl", """println("Testing...")""");
 
 julia> # press ] (without Enter)
 
-(primerDSA) pkg> activate ./test
+(@v1.9) pkg> activate ./test
   Activating project at `███/primerDSA/test`
 
 (test) pkg> add Test

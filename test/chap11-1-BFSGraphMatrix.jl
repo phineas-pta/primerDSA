@@ -13,5 +13,5 @@
 	]
 
 	@test all(bfs(graph_matrix, 1, 7) .== [1, 2, 5, 6, 7,])
-	@test isnothing(bfs(graph_matrix, 7, 1))
+	@test bfs(graph_matrix, 7, 1) |> isnothing
 end

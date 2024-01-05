@@ -13,7 +13,7 @@
 
 	append!(list, 11)
 	@test removeAt!(list, 2) == 9
-	@test isnothing(remove!(list, 9))
+	@test remove!(list, 9) |> isnothing
 	@test removeAt!(list, 1) == 5
 	@test removeAt!(list, 1) == 11
 	@test list.length == 0

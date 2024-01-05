@@ -14,7 +14,7 @@
 	@test dequeue!(list) == 9
 	@test peek(list) == 11
 	@test dequeue!(list) == 11
-	@test isnothing(dequeue!(list))
+	@test list |> dequeue! |> isnothing
 	@test list.length == 0
 
 	enqueue!(list, 69)

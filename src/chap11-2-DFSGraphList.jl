@@ -8,7 +8,7 @@ function _walk!(graph::Vector{Vector{GraphEdge}}, curr::Integer, needle::Integer
 	push!(path, curr)
 	if curr == needle return true end
 
-	for edge in graph[curr]
+	for edge ∈ graph[curr]
 		if _walk!(graph, edge.to, needle, seen, path) return true end
 	end
 

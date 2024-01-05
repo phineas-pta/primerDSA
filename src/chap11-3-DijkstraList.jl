@@ -1,6 +1,6 @@
 # for better optimization: use min heap
 function _hasUnvisited(seen::Vector{Bool}, dists::Vector{<:Real})::Bool
-	for (idx, val) in enumerate(seen)
+	for (idx, val) ∈ enumerate(seen)
 		if !val && dists[idx] < Inf return true end
 	end
 	return false
@@ -30,7 +30,7 @@ function dijkstra_list(source::Integer, sink::Integer, arr::Vector{Vector{GraphE
 		seen[curr] = true
 
 		adjs = arr[curr]
-		for edge in adjs
+		for edge ∈ adjs
 			if seen[edge.to] continue end
 			dist = dists[curr] + edge.weight
 			if dist < dists[edge.to]
@@ -42,7 +42,7 @@ function dijkstra_list(source::Integer, sink::Integer, arr::Vector{Vector{GraphE
 
 	out = Integer[]
 	curr = sink
-	while prev[curr] != -1
+	while prev[curr] ≠ -1
 		pushfirst!(out, curr)
 		curr = prev[curr]
 	end

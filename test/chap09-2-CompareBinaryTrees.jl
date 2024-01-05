@@ -19,5 +19,5 @@
 		)
 	)
 	@test my_binary_tree == my_binary_tree
-	@test my_binary_tree != tree2
+	@test my_binary_tree ≠ tree2
 end

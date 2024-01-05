@@ -22,7 +22,7 @@ function Base.peek(stack::Stack{T})::Union{T, Nothing} where {T<:Number}
 end
 
 function Base.push!(stack::Stack{T}, item::T) where {T}
-	node = NodeLL(value=item)
+	node = NodeLL{T}(value=item)
 	stack.length += 1
 	if !isnothing(stack.head)
 		node.prev = stack.head

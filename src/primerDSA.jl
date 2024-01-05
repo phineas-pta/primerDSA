@@ -10,7 +10,8 @@ begin export  # workaround to line-break export statement
 	#= chap 08 =# NodeBT, traverse_tree,
 	#= chap 09 =# bfs, dfs,
 	#= chap 10 =# MinHeap,
-	#= chap 11 =# GraphEdge, #= bfs, dfs, =# dijkstra_list
+	#= chap 11 =# GraphEdge, #= bfs, dfs, =# dijkstra_list,
+	#= chap 12 =# LRU, update!
 end
 
 include("global.jl")
@@ -42,5 +43,7 @@ include("chap10-MinHeap.jl")
 include("chap11-1-BFSGraphMatrix.jl")
 include("chap11-2-DFSGraphList.jl")
 include("chap11-3-DijkstraList.jl")
+
+include("chap12-LRU.jl")
 
 end  # module

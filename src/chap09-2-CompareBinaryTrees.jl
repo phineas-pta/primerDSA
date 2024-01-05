@@ -5,6 +5,6 @@ function Base.:(==)(a::Union{NodeBT{T}, Nothing}, b::Union{NodeBT{T}, Nothing}):
 	if isnothing(a) || isnothing(b)  # structural check
 		return isnothing(a) && isnothing(b)  # must be true when comparing 2 null children
 	end
-	if a.value != b.value return false end
+	if a.value ≠ b.value return false end
 	return a.left == b.left && a.right == b.right
 end

@@ -35,7 +35,7 @@ function bfs(graph::Vector{Vector{T}}, source::T, needle::T)::Union{Vector{T}, N
 	# build path by going backward
 	curr = needle
 	out = Integer[]
-	while prev[curr] != -1
+	while prev[curr] ≠ -1
 		pushfirst!(out, curr)
 		curr = prev[curr]
 	end

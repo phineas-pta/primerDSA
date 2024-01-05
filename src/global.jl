@@ -2,7 +2,7 @@
 
 # @kwdef to define default values in struct
 
-@kwdef mutable struct NodeLL{T<:Number}  # used in linked list struct (stack, queue, doubly)
+@kwdef mutable struct NodeLL{T<:Number}  # used in linked list struct (stack, queue, doubly) and LRU
 	const value::T
 	prev::Union{NodeLL{T}, Nothing} = nothing
 	next::Union{NodeLL{T}, Nothing} = nothing

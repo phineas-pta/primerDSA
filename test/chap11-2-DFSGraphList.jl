@@ -13,5 +13,5 @@
 	]
 
 	@test all(dfs(graph_list, 1, 7) .== [1, 2, 5, 6, 7,])
-	@test isnothing(dfs(graph_list, 7, 1))
+	@test dfs(graph_list, 7, 1) |> isnothing
 end

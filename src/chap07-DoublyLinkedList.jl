@@ -35,7 +35,7 @@ function Base.get(arr::DoublyLinkedList{T}, idx::Integer)::Union{T, Nothing} whe
 end
 
 function Base.prepend!(arr::DoublyLinkedList{T}, item::T) where {T<:Number}
-	node = NodeLL(value=item)
+	node = NodeLL{T}(value=item)
 	arr.length += 1
 	if isnothing(arr.head)
 		arr.head = arr.tail = node
@@ -48,7 +48,7 @@ function Base.prepend!(arr::DoublyLinkedList{T}, item::T) where {T<:Number}
 end
 
 function Base.append!(arr::DoublyLinkedList{T}, item::T) where {T<:Number}
-	node = NodeLL(value=item)
+	node = NodeLL{T}(value=item)
 	arr.length += 1
 	if isnothing(arr.tail)
 		arr.head = arr.tail = node
@@ -73,7 +73,7 @@ function Base.insert!(arr::DoublyLinkedList{T}, idx::Integer, item::T) where {T<
 	end
 	arr.length += 1
 	curr = arr[idx]
-	node = NodeLL(value=item, prev=curr.prev, next=curr)
+	node = NodeLL{T}(value=item, prev=curr.prev, next=curr)
 	curr.prev = node
 	if !isnothing(node.prev)
 		curr.prev.next = curr

@@ -28,3 +28,5 @@ include("chap10-MinHeap.jl")
 include("chap11-1-BFSGraphMatrix.jl")
 include("chap11-2-DFSGraphList.jl")
 include("chap11-3-DijkstraList.jl")
+
+include("chap12-LRU.jl")
