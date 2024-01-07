@@ -9,7 +9,7 @@ function bfs(root::NodeBT{T}, needle::T)::Bool where {T<:Number}
 		curr = popfirst!(q)  # dequeue
 		if isnothing(curr) continue end
 		if curr.value == needle return true end
-		if !isnothing(curr.left) push!(q, curr.left) end
+		if !isnothing(curr.left)  push!(q, curr.left)  end
 		if !isnothing(curr.right) push!(q, curr.right) end
 	end
 	return false

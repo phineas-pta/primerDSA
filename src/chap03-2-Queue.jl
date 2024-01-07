@@ -33,7 +33,7 @@ function dequeue!(queue::Queue{T})::Union{T, Nothing} where {T<:Number}
 	return myhead.value
 end
 
-function enqueue!(queue::Queue{T}, item::T) where {T<:Number}
+function enqueue!(queue::Queue{T}, item::T)::Nothing where {T<:Number}
 	node = NodeLL{T}(value=item)
 	queue.length += 1
 	if isnothing(queue.tail)

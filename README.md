@@ -34,7 +34,7 @@ chapters: (my personal numbering)
 
 ## basic Julia setup
 
-1st setup
+1st time creating julia package
 ```
 julia> # press ] (without Enter)
 
@@ -66,7 +66,7 @@ julia> # press ] (without Enter)
   [████████] + Serialization
   [████████] + Test
 ```
-for each time testing
+if already created package or cloned this repo
 ```
 julia> # press ] (without Enter)
 

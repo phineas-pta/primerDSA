@@ -21,7 +21,7 @@ function Base.peek(stack::Stack{T})::Union{T, Nothing} where {T<:Number}
 	return get_node_value(stack.head)
 end
 
-function Base.push!(stack::Stack{T}, item::T) where {T}
+function Base.push!(stack::Stack{T}, item::T)::Nothing where {T}
 	node = NodeLL{T}(value=item)
 	stack.length += 1
 	if !isnothing(stack.head)

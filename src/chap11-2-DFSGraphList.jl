@@ -1,7 +1,7 @@
 # WeightedAdjacencyList = Vector{Vector{GraphEdge}}
 # not matrix coz not regular
 
-function _walk!(graph::Vector{Vector{GraphEdge}}, curr::Integer, needle::Integer, seen::Vector{Bool}, path::Vector{Integer})
+function _walk!(graph::Vector{Vector{GraphEdge}}, curr::Integer, needle::Integer, seen::Vector{Bool}, path::Vector{Integer})::Bool
 	if seen[curr] return false end
 	seen[curr] = true
 
