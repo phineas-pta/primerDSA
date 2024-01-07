@@ -22,7 +22,7 @@ function Base.peek(queue::Queue{T})::Union{T, Nothing} where {T<:Number}
 	return get_node_value(queue.head)
 end
 
-function dequeue!(queue::Queue{T})::Union{T, Nothing} where {T<:Number}
+function deque!(queue::Queue{T})::Union{T, Nothing} where {T<:Number}
 	myhead = queue.head
 	if isnothing(myhead) return nothing end
 	queue.length -= 1
@@ -33,7 +33,7 @@ function dequeue!(queue::Queue{T})::Union{T, Nothing} where {T<:Number}
 	return myhead.value
 end
 
-function enqueue!(queue::Queue{T}, item::T) where {T<:Number}
+function enqueue!(queue::Queue{T}, item::T)::Nothing where {T<:Number}
 	node = NodeLL{T}(value=item)
 	queue.length += 1
 	if isnothing(queue.tail)

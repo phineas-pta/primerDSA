@@ -14,7 +14,7 @@ function _partition(arr::Vector{<:Number}, lo::Integer, hi::Integer)::Integer
 end
 
 """mostly bookkeeping"""
-function _qs!(arr::Vector{<:Number}, lo::Integer, hi::Integer)
+function _qs!(arr::Vector{<:Number}, lo::Integer, hi::Integer)::Nothing
 	if lo ≥ hi return nothing end
 	pivotIdx = _partition(arr, lo, hi)
 	_qs!(arr, lo, pivotIdx-1)
@@ -22,7 +22,7 @@ function _qs!(arr::Vector{<:Number}, lo::Integer, hi::Integer)
 	return nothing
 end
 
-function quick_sort!(arr::Vector{<:Number})
+function quick_sort!(arr::Vector{<:Number})::Nothing
 	_qs!(arr, 1, length(arr))
 	return nothing
 end

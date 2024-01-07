@@ -8,7 +8,7 @@ this algorithm has time complexity O(√N) comparing to O(N) in normal search al
 """
 function two_crystal_balls(breaks::Vector{Bool})::Integer
 	N = length(breaks)
-	jmpAmount = floor(Int, sqrt(N))
+	jmpAmount = isqrt(N)  # floor(Int, √N)
 	i = 0  # re-used outside for loop
 	for outer i ∈ jmpAmount:jmpAmount:N
 		if breaks[i] break end

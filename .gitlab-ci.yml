@@ -1,0 +1,22 @@
+image: julia:latest
+
+stages:
+  - test
+
+variables:
+  GIT_DEPTH: 1
+
+unit-test-job:
+  stage: test
+
+  only:
+  - main
+  except:
+    changes:
+      - .github/*
+      - .editorconfig
+      - LICENSE
+      - README.md
+
+  script:
+    - julia --project=@. -e "import Pkg; Pkg.build(); Pkg.test()"

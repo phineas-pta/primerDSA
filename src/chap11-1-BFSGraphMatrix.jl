@@ -19,7 +19,7 @@ function bfs(graph::Vector{Vector{T}}, source::T, needle::T)::Union{Vector{T}, N
 	q = [source]  # to behave like a queue
 
 	while length(q) > 0
-		curr = popfirst!(q)  # dequeue
+		curr = popfirst!(q)  # deque
 		if curr == needle break end
 		adjs = graph[curr]
 		for i ∈ eachindex(adjs)

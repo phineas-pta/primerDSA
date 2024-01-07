@@ -1,7 +1,7 @@
 using Test
 using primerDSA
 
-include("global.jl")
+include("global.jl")  # things re-used multiple times
 
 include("chap02-1-LinearSearchList.jl")
 include("chap02-2-BinarySearchList.jl")

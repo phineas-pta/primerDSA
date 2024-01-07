@@ -1,20 +1,19 @@
 module primerDSA
 
-# no need export functions in Base but multiple-dispatched
-begin export  # workaround to line-break export statement
+export
 	#= chap 02 =# linear_search, bs_list, two_crystal_balls,
-	#= chap 03 =# bubble_sort!, Queue, Stack, dequeue!, enqueue!,
+	#= chap 03 =# bubble_sort!, Queue, Stack, deque!, enqueue!,
 	#= chap 05 =# Pointy, solve,
 	#= chap 06 =# quick_sort!,
 	#= chap 07 =# DoublyLinkedList, remove!, removeAt!,
 	#= chap 08 =# NodeBT, traverse_tree,
-	#= chap 09 =# bfs, dfs,
+	#= chap 09 =# bfs, dfs,  # over-loaded in chap 11
 	#= chap 10 =# MinHeap,
 	#= chap 11 =# GraphEdge, #= bfs, dfs, =# dijkstra_list,
 	#= chap 12 =# LRU, update!
-end
+# no need export functions in Base that are overloaded / multiple-dispatched
 
-include("global.jl")
+include("global.jl")  # things re-used multiple times
 
 # include("chap01-bigO.jl")  # no unit test so not included
 
